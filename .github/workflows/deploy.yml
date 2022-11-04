@@ -10,29 +10,29 @@ jobs:
 
     steps:
       - name: Settingout the latest version
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
       - name: Installing NodeJs
-      - uses: actions/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: 18
       - name: Installing SASS
-      - run: npm install -g sass
+        run: npm install -g sass
 
       - name: 'Compilling *.scss files to *.css'
-      - run: sass scss:css
+        run: sass scss:css
 
       - name: Creating the dist directory
-      - run: mkdir dist
+        run: mkdir dist
 
       - name: Copying everything to the dist directory
-      - run: cp -r css dist/
+        run: cp -r css dist/
       - run: cp -r pages dist/
       - run: cp -r js dist/
       - run: cp -r index.html dist/
 
       - name: Creating a zip file to deployment
-      - run: zip -r dist.zip dist/
+        run: zip -r dist.zip dist/
       - run: ls -la
 
 
